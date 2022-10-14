@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from "./Components/ToastContainer";
+import { useToast } from "./contexts/toast";
+import { FlexContainer } from "./styles/global";
 
 function App() {
+  const { toast } = useToast();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FlexContainer>
+      <ToastContainer />
+      <div>
+        <button onClick={() => toast("Deu Muito Bom!", "success", 2000)}>
+          2 segundos
+        </button>
+      </div>
+    </FlexContainer>
   );
 }
 
